@@ -108,12 +108,12 @@ button.tile {
             }
         }
 
-        // &.guests {
-        //     background-color: var(--color-module-guests);
-        //     .action {
-        //         color: var(--color-module-guests);
-        //     }
-        // }
+        &.guests {
+            background-color: var(--color-module-guests);
+            .action {
+                color: var(--color-module-guests);
+            }
+        }
 
         // &.exhibitors {
         //     background-color: var(--color-module-exhibitors);

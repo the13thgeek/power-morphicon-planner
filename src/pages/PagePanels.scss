@@ -31,6 +31,40 @@
         font-weight: bold;
     }
 
+    .no-data {
+        margin: 20px;
+    }
+
+    .day-tabs ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: lighten(#a50606, 60%);
+
+        li {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+
+            &.active {
+                border-radius: 15px;
+                background-color: #a50606;
+                color: #fff;
+            }
+
+            span {
+                display: block;
+                font-weight: bold;
+                padding: 10px 15px;
+            }
+        }
+        
+    }
+
     table.panels-list {
 
         tr:last-child {

@@ -96,6 +96,9 @@ const PageBadges = () => {
                 )
                 
                 )}
+                <Tile className='disclaimer'>
+                    <Footer />
+                </Tile>
             </div>
         </div>
     </div>

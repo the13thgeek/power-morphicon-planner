@@ -28,7 +28,41 @@
         margin-bottom: 30px;
         background-color: #ddd;
         border-radius: 15px;
-        border: 0;
+        border: 0;        
+    }
+
+    .no-data {
+        margin: 20px;
+    }
+
+    .photoop-tabs ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: lighten(#0033cc, 50%);
+
+        li {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+
+            &.active {
+                border-radius: 15px;
+                background-color: #0033cc;
+                color: #fff;
+            }
+
+            span {
+                display: block;
+                font-weight: bold;
+                padding: 10px 15px;
+            }
+        }
+        
     }
 
     table.photo-ops-list {

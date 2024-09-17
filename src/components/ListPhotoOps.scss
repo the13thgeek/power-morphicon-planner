@@ -1,0 +1,74 @@
+.photoops-list {
+    margin: 15px 0;
+
+    .photoop-item {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        margin-bottom: 15px;
+        justify-content: start;
+        align-items: center;
+
+        hr {
+            border: none;
+            border-right: #0033cc 2px solid;
+        }
+
+        .info {
+            width: 60%;
+            margin-left: 15px;
+
+            h3 {
+                color: #0033cc;
+            }
+
+            p.members {
+                font-size: 14px;
+                line-height: 18px;
+            }
+
+            .rate {
+                display: inline-block;
+                font-size: 14px;
+                line-height: 14px;
+                font-weight: normal;
+                background-color: #000;
+                color: #fff;
+                padding: 4px 5px;
+                margin-left: 5px;
+                transform: translateY(-2px);
+                border-radius: 5px;
+            }
+
+        }
+
+        .time-box {
+            width: 40%;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .item {
+                width: 33%;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            span.day-label {
+                background-color: #0033cc;
+                font-weight: normal;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 12px;
+                line-height: 12px;
+                display: inline-block;
+                padding: 3px 5px;
+                border-radius: 5px;
+            }
+        }
+
+    }
+
+}

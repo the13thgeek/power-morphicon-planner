@@ -1,7 +1,7 @@
 {
   "name": "power-morphicon-planner",
   "private": true,
-  "version": "0.3.1",
+  "version": "0.4.0",
   "type": "module",
   "homepage": "https://pmc.the13thgeek.com/",
   "scripts": {
@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@sanity/client": "^6.21.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-ga4": "^2.1.0",

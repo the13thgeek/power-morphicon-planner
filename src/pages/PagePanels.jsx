@@ -1,33 +1,67 @@
 import React, { useState, useEffect } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Heading from '../components/Heading';
 import Footer from "../components/Footer";
 import setBodyColor from '../setBodyColor'
 import Tile from '../components/Tile';
+import ListPanels from "../components/ListPanels";
 import './PagePanels.scss';
-import data from "../data/paneldata.json";
+
+//import data from "../data/paneldata.json";
+import dataClient from "../data/sanityClient";
 
 const PagePanels = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
-    const [filteredData, setFilteredData] = useState(data);
-
+    const [loading, setLoading] = useState(true);
+    const [panelData, setPanelData] = useState(null);
+    const [filteredData, setFilteredData] = useState(panelData);
+    
     useEffect(() => {
-        const filtered = data
-        .map((day) => ({
-            ...day,
-            panels: day.panels.filter((panel) =>
-            Object.values(panel)
-                .map((value) => value.toLowerCase())
-                .some((element) => element.includes(searchTerm.toLowerCase()))
-            ),
-        }))
-        .filter((day) => day.panels.length > 0);
+        let query = `*[_type == "pmcPanel" && pmcYear == 2024] | order(day asc, duration.start asc, room asc) 
+        {
+            _id,
+            title,
+            description,
+            day,room,
+            duration,
+            moderator,
+            guests[]->{name},
+            guests_plus
+        }`;
 
-        setFilteredData(filtered);
-
+        dataClient
+            .fetch(query)
+            .then((data) => { setPanelData(data); setFilteredData(data); setLoading(false) })
+            .catch((e) => { console.log(e); setLoading(false); });
+        
         document.title = 'Panels - Power Morphicon Planner';
         window.scrollTo(0, 0);
-    }, [searchTerm]);
+
+    },[]);
+   
+    useEffect(() => {
+        const lowerSearchTerm = searchTerm.toLowerCase();
+        if(panelData) {
+            const filteredPanels = panelData.filter((panel) => {
+                // searchable fields
+                const panelValues = [
+                    panel.title ? panel.title.toLowerCase() : '',
+                    panel.description ? panel.description.toLowerCase() : '',
+                    ...(panel.guests ? panel.guests.map((guest) => guest.name.toLowerCase()) : []),
+                    panel.guests_plus ? panel.guests_plus.toLowerCase() : '',
+                ];
+
+                // Check for matches
+                return panelValues.some((value) => value.includes(lowerSearchTerm));
+            });
+            setFilteredData(filteredPanels);
+        } else {
+            // Show all by default
+            setFilteredData(panelData);
+        }
+        
+    },[searchTerm]);
 
     const handleInputChange = (e) => {
         setSearchTerm(e.target.value);
@@ -64,7 +98,42 @@ const PagePanels = () => {
                     Browse the Panels schedule below or use the text box search for a panel.
                 </p>
                 <input className="panel-searcher" id="panelSearcher" type="text" placeholder="Search by panel, room or participant names" value={searchTerm} onChange={handleInputChange} />
+                
+                <Tabs className='day-tabs' selectedTabClassName='active'>
+                    <TabList>
+                        <Tab><span>Day 1 (Fri)</span></Tab>
+                        <Tab><span>Day 2 (Sat)</span></Tab>
+                        <Tab><span>Day 3 (Sun)</span></Tab>
+                    </TabList>
+                    <TabPanel>
+                        { filteredData && filteredData.filter((panel) => panel.day === 1).length > 0 ? (
+                            <ListPanels data={filteredData.filter((panel) => panel.day === 1)} />
+                        ) : (
+                            <div className="no-data">No Friday panels have matched <b>"{searchTerm}."</b></div>
+                        )}
+                    </TabPanel>
+                    <TabPanel>
+                        { filteredData && filteredData.filter((panel) => panel.day === 2).length > 0 ? (
+                            <ListPanels data={filteredData.filter((panel) => panel.day === 2)} />
+                        ) : (
+                            <div className="no-data">No Saturday panels have matched <b>"{searchTerm}."</b></div>
+                        )}
+                    </TabPanel>
+                    <TabPanel>
+                        { filteredData && filteredData.filter((panel) => panel.day === 3).length > 0 ? (
+                            <ListPanels data={filteredData.filter((panel) => panel.day === 3)} />
+                        ) : (
+                            <div className="no-data">No Sunday panels have matched <b>"{searchTerm}."</b></div>
+                        )}
+                    </TabPanel>
+                </Tabs>
+                
+                <Tile className='results panel section'>
+                    
+                </Tile>
 
+
+{/*                 
                 { filteredData.length == 0 ? (<p className="no-data">No panels matched your search for <b>"{searchTerm}."</b></p>) : "" }
 
                 {filteredData.map((day, index) => (
@@ -110,7 +179,8 @@ const PagePanels = () => {
                         </tbody>
                     </table>
                 </Tile>
-                ))}
+                ))} */}
+
                 <Tile className='disclaimer'>
                     <Footer />
                 </Tile>

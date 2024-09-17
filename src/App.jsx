@@ -7,6 +7,8 @@ import Analytics from "./components/Analytics";
 import PageHome from "./pages/PageHome";
 import PagePanels from "./pages/PagePanels";
 import PagePhotoOps from "./pages/PagePhotoOps";
+import PageGuests from "./pages/PageGuests";
+import PageGuestBio from "./pages/PageGuestBio";
 import PageBadges from "./pages/PageBadges";
 
 import "./App.scss";
@@ -28,6 +30,8 @@ const App = () => {
         <Route exact path="/" element={<PageHome />} />
         <Route exact path="/panels" element={<PagePanels />} />
         <Route exact path="/photo-ops" element={<PagePhotoOps />} />
+        <Route exact path="/guests" element={<PageGuests />} />
+        <Route exact path="/guests/:slug" element={<PageGuestBio />} />
         <Route exact path="/badges" element={<PageBadges />} />
         <Route path="*" element={<PageHome />} />
       </Routes>

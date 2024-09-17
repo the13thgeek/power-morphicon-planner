@@ -66,6 +66,16 @@ const PageHome = () => {
                         <i className="fa-solid fa-camera"></i>
                     </div> */}
                 </Tile>
+                <Tile className='module guests' linkTo='guests/'>
+                    <div className='content'>
+                        <h3>Guests</h3>
+                        <p>Meet the legends of the Morphin' Grid</p>
+                        <div className="action">See Guests</div>
+                    </div>
+                    {/* <div className="icon">
+                        <i className="fa-solid fa-user-ninja"></i>
+                    </div> */}
+                </Tile>
                 <Tile className='module badges' linkTo='badges/'>
                     <div className='content'>
                         <h3>Badges</h3>
@@ -74,16 +84,6 @@ const PageHome = () => {
                     </div>
                     {/* <div className="icon">
                         <i className="fa-solid fa-ticket"></i>
-                    </div> */}
-                </Tile>
-                <Tile className='module guests'>
-                    <div className='content'>
-                        <h3>Guests</h3>
-                        <p>Meet the legends of the Morphin' Grid</p>
-                        <div className="action disabled">Under Construction</div>
-                    </div>
-                    {/* <div className="icon">
-                        <i className="fa-solid fa-user-ninja"></i>
                     </div> */}
                 </Tile>
                 <Tile className='module exhibitors'>

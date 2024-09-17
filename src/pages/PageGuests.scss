@@ -1,0 +1,92 @@
+#guests {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    input.guest-searcher {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 15px;
+        margin-bottom: 30px;
+        background-color: #ddd;
+        border-radius: 15px;
+        border: 0;        
+    }
+
+    .instruction, .no-data {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .no-data {
+        margin: 20px;
+    }
+
+    .guest-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-row-gap: 15px;
+        grid-column-gap: 15px;
+        margin-bottom: 30px;
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .item {
+            img {
+                width: 100%;
+                height: auto;
+
+            }
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            width: 100%;
+
+            .attendance {
+
+                span {
+                    background-color: #0d8929;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    line-height: 12px;
+                    display: inline-block;
+                    padding: 3px 5px;
+                    border-radius: 5px;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+
+    #guests {
+
+        .guest-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #guests {
+
+        .guest-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+    }
+
+}
