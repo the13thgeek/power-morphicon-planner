@@ -22,7 +22,7 @@ const PageHome = () => {
             <div className='content'>
                 <img src={pmcLogo} alt="Power Morphicon" className='pmc-logo' />
                 <h1>Plan your PMC weekend!</h1>
-                <p>The panel and photo-op schedules for this year's PMC are out. Use the menu below to browse, search and plan your convention itinerary.</p>
+                <p>The guests are slowly being announced for PMC 2026. Check back soon for more information!</p>
             </div>
             <div className="icon">
                 <i className="fa-solid fa-bolt-lightning"></i>
@@ -36,17 +36,17 @@ const PageHome = () => {
                     </div>
                     <div className='message'>
                         <h3>Under Construction</h3>
-                        <p>This page is currently being updated for the <b>Power Morphicon 2026</b> (with possible support for PMCX 2025). Stay tuned for new information coming soon!</p>
+                        <p>This page is currently being updated for the <b>Power Morphicon 2026</b>. Stay tuned for new information coming soon!</p>
                     </div>
                 </Tile>
                 <Tile className='announcement pmc'>
                     <div className="body">
                         <h3>PMC 2026 Announced!</h3>
-                        <p>August 28 - 29, 2026<br />
+                        <p>August 28 - 30, 2026<br />
                         Pasadena Convention Center</p>
                     </div>
                 </Tile>
-                <Tile className='module panels' linkTo='panels/'>
+                <Tile className='module panels' linkTo='panels/' disabled={true}>
                     <div className='content'>
                         <h3>Panels</h3>
                         <p>Power up with Ranger talks and insights</p>
@@ -56,7 +56,7 @@ const PageHome = () => {
                         <i className="fa-solid fa-people-group"></i>
                     </div> */}
                 </Tile>
-                <Tile className='module photo-ops' linkTo='photo-ops/'>
+                <Tile className='module photo-ops' linkTo='photo-ops/' disabled={true}>
                     <div className='content'>
                         <h3>Photo Ops</h3>
                         <p>Strike a pose with your Morphin' heroes</p>
@@ -86,16 +86,16 @@ const PageHome = () => {
                         <i className="fa-solid fa-ticket"></i>
                     </div> */}
                 </Tile>
-                <Tile className='module exhibitors'>
+                {/* <Tile className='module exhibitors'>
                     <div className='content'>
                         <h3>Exhibitors & Artists</h3>
                         <p>Gear up with exclusive Ranger merch</p>
                         <div className="action disabled">Under Construction</div>
                     </div>
-                    {/* <div className="icon">
+                    <div className="icon">
                         <i className="fa-solid fa-store"></i>
-                    </div> */}
-                </Tile>
+                    </div>
+                </Tile> */}
                 <Tile className='disclaimer'>
                     <Footer />
                 </Tile>

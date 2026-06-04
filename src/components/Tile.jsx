@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Tile.scss';
 
-const Tile = ({ children, className = null, linkTo = null, isExternal = false }) => {
+const Tile = ({ children, disabled = false, className = null, linkTo = null, isExternal = false }) => {
 
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const Tile = ({ children, className = null, linkTo = null, isExternal = false })
 
   if(linkTo) {
     return (
-      <button className={`tile ${className}`} onClick={goTo}>
+      <button className={`tile ${className} ${disabled ? 'disabled' : ''}`} onClick={goTo} disabled={disabled}>
           {children}
       </button>
     )

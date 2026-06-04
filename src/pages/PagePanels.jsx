@@ -18,7 +18,7 @@ const PagePanels = () => {
     const [filteredData, setFilteredData] = useState(panelData);
     
     useEffect(() => {
-        let query = `*[_type == "pmcPanel" && pmcYear == 2024] | order(day asc, duration.start asc, room asc) 
+        let query = `*[_type == "pmcPanel" && pmcYear == 2026] | order(day asc, duration.start asc, room asc) 
         {
             _id,
             title,
@@ -91,7 +91,7 @@ const PagePanels = () => {
                     </div>
                     <div className='message'>
                         <h3>In Active Development</h3>
-                        <p>Displayed data is <b><u>for testing only</u></b> and may not be accurate. Updates will be announced!</p>
+                        <p>We'll be displaying more information as soon as it becomes available!</p>
                     </div>
                 </Tile>
                 <p className="instruction">
@@ -108,22 +108,28 @@ const PagePanels = () => {
                     <TabPanel>
                         { filteredData && filteredData.filter((panel) => panel.day === 1).length > 0 ? (
                             <ListPanels data={filteredData.filter((panel) => panel.day === 1)} />
+                        ) : searchTerm !== '' ? (
+                            <div className="no-data">No Friday panels have matched <b>"{searchTerm}".</b></div>
                         ) : (
-                            <div className="no-data">No Friday panels have matched <b>"{searchTerm}."</b></div>
+                            <div className="no-data">No Friday panels are currently listed.</div>
                         )}
                     </TabPanel>
                     <TabPanel>
                         { filteredData && filteredData.filter((panel) => panel.day === 2).length > 0 ? (
                             <ListPanels data={filteredData.filter((panel) => panel.day === 2)} />
+                        ) : searchTerm !== '' ? (
+                            <div className="no-data">No Saturday panels have matched <b>"{searchTerm}".</b></div>
                         ) : (
-                            <div className="no-data">No Saturday panels have matched <b>"{searchTerm}."</b></div>
+                            <div className="no-data">No Saturday panels are currently listed.</div> 
                         )}
                     </TabPanel>
                     <TabPanel>
                         { filteredData && filteredData.filter((panel) => panel.day === 3).length > 0 ? (
                             <ListPanels data={filteredData.filter((panel) => panel.day === 3)} />
+                        ) : searchTerm !== '' ? (
+                            <div className="no-data">No Sunday panels have matched <b>"{searchTerm}".</b></div>
                         ) : (
-                            <div className="no-data">No Sunday panels have matched <b>"{searchTerm}."</b></div>
+                            <div className="no-data">No Sunday panels are currently listed.</div>
                         )}
                     </TabPanel>
                 </Tabs>

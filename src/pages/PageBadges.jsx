@@ -21,28 +21,28 @@ const PageBadges = () => {
             'name': 'Red',
             'description': 'Full Weekend Admission',
             'extrainfo': null,
-            'buylink': null
+            'buylink': 'https://www.tixr.com/groups/powermorphicon/events/powermorphicon-power-morphicon-2026-116470'
         },
         {
             'type': 'blue',
             'name': 'Blue',
             'description': 'Saturday Admission',
             'extrainfo': null,
-            'buylink': null
+            'buylink': 'https://www.tixr.com/groups/powermorphicon/events/powermorphicon-power-morphicon-2026-116470'
         },
         {
             'type': 'yellow',
             'name': 'Yellow',
             'description': 'Sunday Admission',
             'extrainfo': null,
-            'buylink': null
+            'buylink': 'https://www.tixr.com/groups/powermorphicon/events/powermorphicon-power-morphicon-2026-116470'
         },
         {
             'type': 'pink',
             'name': 'Pink',
             'description': 'Children Under 12',
             'extrainfo': '(with paid adult)',
-            'buylink': null
+            'buylink': 'https://www.tixr.com/groups/powermorphicon/events/powermorphicon-power-morphicon-2026-116470'
         }
     ];
 

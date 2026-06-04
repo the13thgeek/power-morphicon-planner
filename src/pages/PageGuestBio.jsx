@@ -42,10 +42,10 @@ useEffect(() => {
 
     const fetchGuest = async() => {
         let query = `*[_type == 'pmcGuest' && slug.current == '${slug}'] {
-            _id,slug,name,bio,photo,attendancePmc24,
-            "panels": *[_type == 'pmcPanel' && references(^._id)] | order(day asc, duration.start asc)
+            _id,slug,name,bio,photo,attendancePmc26,
+            "panels": *[_type == 'pmcPanel' && pmcYear == 2026 && references(^._id)] | order(day asc, duration.start asc)
             { day, duration, start, title, panelStart, room },
-            "photoOps": *[_type == 'pmcPhotoOp' && references(^._id)] | order(type desc)
+            "photoOps": *[_type == 'pmcPhotoOp' && pmcYear == 2026 && references(^._id)] | order(type desc)
             { type, groupName, rate, photoOpTime }
         }`;
 
@@ -99,26 +99,26 @@ useEffect(() => {
                     </div>
                     <div className='message'>
                         <h3>In Active Development</h3>
-                        <p>Displayed data is <b><u>for testing only</u></b> and may not be accurate. Updates will be announced!</p>
+                        <p>We'll be displaying more information as soon as it's available!</p>
                     </div>
                 </Tile>
                 { !loading ? (
                     <>
                         <div className="row">
-                            <div className="photo">
+                            {/* <div className="photo">
                                 <img src="https://placehold.co/300" alt="Photo Preview" />
-                            </div>
+                            </div> */}
                             <div className="profile">
                                 <h2>{guest.name} </h2>
                                 <div className="attendance">
-                                    { guest.attendancePmc24?.fri ? (<span>Fri</span>) : ('') }
-                                    { guest.attendancePmc24?.sat ? (<span>Sat</span>) : ('') }
-                                    { guest.attendancePmc24?.sun ? (<span>Sun</span>) : ('') }
+                                    { guest.attendancePmc26?.fri ? (<span>Fri</span>) : ('') }
+                                    { guest.attendancePmc26?.sat ? (<span>Sat</span>) : ('') }
+                                    { guest.attendancePmc26?.sun ? (<span>Sun</span>) : ('') }
                                 </div>
                                 <p>{guest.bio}</p>
                             </div>
                         </div>
-                        { guest.panels ? (
+                        { guest.panels && guest.panels.length > 0 ? (
                             <>
                             <Tile className='section-heading'>
                                 <h3>Panels</h3>
@@ -141,7 +141,7 @@ useEffect(() => {
                             </div>
                             </>
                         ) : ('') }
-                        { guest.photoOps ? (
+                        { guest.photoOps && guest.photoOps.length > 0 ? (
                             <>
                             <Tile className='section-heading'>
                                 <h3>Photo Ops</h3>

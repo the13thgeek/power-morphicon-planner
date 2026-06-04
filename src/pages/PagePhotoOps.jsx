@@ -16,7 +16,7 @@ const PagePhotoOps = () => {
     const [filteredData, setFilteredData] = useState(photoOpData);
 
     useEffect(() => {
-        let query = `*[_type == "pmcPhotoOp" && pmcYear == 2024] | order(type desc, guests[0]->name asc, groupName asc) {
+        let query = `*[_type == "pmcPhotoOp" && pmcYear == 2026] | order(type desc, guests[0]->name asc, groupName asc) {
             _id,
             pmcYear,
             type,
@@ -94,7 +94,7 @@ const PagePhotoOps = () => {
                     </div>
                     <div className='message'>
                         <h3>In Active Development</h3>
-                        <p>Displayed data is <b><u>for testing only</u></b> and may not be accurate. Updates will be announced!</p>
+                        <p>We'll be displaying more information as soon as it becomes available!</p>
                     </div>
                 </Tile>
                 <p className="instruction">
@@ -111,22 +111,28 @@ const PagePhotoOps = () => {
                     <TabPanel>
                         { filteredData && filteredData.filter((photoOp) => photoOp.type === 'solo').length > 0 ? (
                             <ListPhotoOps data={filteredData.filter((photoOp) => photoOp.type === 'solo')} />
-                        ) : (
+                        ) : searchTerm !== '' ? (
                             <div className="no-data">No matching solo photo ops for <b>"{searchTerm}."</b></div>
+                        ) : (
+                            <div className="no-data">No solo photo ops are currently listed.</div>
                         )}
                     </TabPanel>
                     <TabPanel>
                         { filteredData && filteredData.filter((photoOp) => photoOp.type === 'costume').length > 0 ? (
                             <ListPhotoOps data={filteredData.filter((photoOp) => photoOp.type === 'costume')} />
-                        ) : (
+                        ) : searchTerm !== '' ? (
                             <div className="no-data">No matching in-costume photo ops for <b>"{searchTerm}."</b></div>
+                        ) : (
+                            <div className="no-data">No in-costume photo ops are currently listed.</div>
                         )}
                     </TabPanel>
                     <TabPanel>
                         { filteredData && filteredData.filter((photoOp) => photoOp.type === 'group').length > 0 ? (
                             <ListPhotoOps data={filteredData.filter((photoOp) => photoOp.type === 'group')} />
-                        ) : (
+                        ) : searchTerm !== '' ? (
                             <div className="no-data">No matching group photo ops for <b>"{searchTerm}."</b></div>
+                        ) : (
+                            <div className="no-data">No group photo ops are currently listed.</div>
                         )}
                     </TabPanel>
                 </Tabs>

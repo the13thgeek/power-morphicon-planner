@@ -16,12 +16,12 @@ const PageGuests = () => {
     setBodyColor({color: '#0d8929'});
 
     useEffect(() => {
-        let query = `*[_type == "pmcGuest" && pmc24 == true] | order(name asc)
+        let query = `*[_type == "pmcGuest" && pmc26 == true] | order(name asc)
             {
             _id,
             name,
             slug,
-            attendancePmc24,
+            attendancePmc26,
             photo
             }`;
         dataClient
@@ -30,7 +30,7 @@ const PageGuests = () => {
             .catch((e) => { console.log(e); });
 
         document.title = 'Guests - Power Morphicon Planner';
-        window.scrollTo(0, 0);
+        //window.scrollTo(0, 0);
     },[]);
 
     useEffect(() => {
@@ -76,7 +76,7 @@ const PageGuests = () => {
                     </div>
                     <div className='message'>
                         <h3>In Active Development</h3>
-                        <p>Displayed data is <b><u>for testing only</u></b> and may not be accurate. Updates will be announced!</p>
+                        <p>We'll be displaying more information as soon as it becomes available!</p>
                     </div>
                 </Tile>
                 <p className="instruction">
@@ -86,15 +86,15 @@ const PageGuests = () => {
                 <div className="guest-grid">
                     { filteredData ? (
                         filteredData.map((guest, index) => (
-                        <Link to={`/guests/${guest.slug.current}`} key={index}>
+                        <Link to={`/guests/${guest.slug.current}`} className={`item-`+index+` id-`+guest._id} key={index}>
                             <div className="item">
-                                <img src="https://placehold.co/300" alt="Photo Preview" />
+                                {/* <img src="https://placehold.co/300" alt="Photo Preview" /> */}
                                 <div className="info">
                                     <h4>{guest.name}</h4>
                                     <div className="attendance">
-                                        { guest.attendancePmc24?.fri ? (<span>Fri</span>) : ('') }
-                                        { guest.attendancePmc24?.sat ? (<span>Sat</span>) : ('') }
-                                        { guest.attendancePmc24?.sun ? (<span>Sun</span>) : ('') }
+                                        { guest.attendancePmc26?.fri ? (<span>Fri</span>) : ('') }
+                                        { guest.attendancePmc26?.sat ? (<span>Sat</span>) : ('') }
+                                        { guest.attendancePmc26?.sun ? (<span>Sun</span>) : ('') }
                                     </div>
                                 </div>
                                 
