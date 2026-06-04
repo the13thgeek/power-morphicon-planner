@@ -87,6 +87,37 @@ button.tile {
             }
         }
 
+        &.updates {
+            background-color: #cdf;
+            font-size: 14px;
+
+            .icon {
+                display: flex;
+                width: 7rem;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+            }
+            .message {
+                padding: 20px 20px 20px 0;
+                
+                & > * {
+                    font-size: 14px;
+                }
+            }
+            ul {
+                list-style: disc;
+                padding-left: 20px;
+                margin-top: 10px;
+
+                li {
+                    
+                    line-height: 16px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
     }
 
     &.module {

@@ -7,6 +7,7 @@ import Tile from '../components/Tile';
 import './PageGuestBio.scss';
 
 import dataClient from "../data/sanityClient";
+import UpdateText from '../components/UpdateText';
 
 const PageGuestBio = () => {
 const { slug } = useParams();
@@ -93,15 +94,7 @@ useEffect(() => {
         </Heading>
         <div className="structure">
             <div className="structure-content">
-                <Tile className='dialog notice'>
-                    <div className="icon">
-                        <i className="fa-solid fa-wrench"></i>
-                    </div>
-                    <div className='message'>
-                        <h3>In Active Development</h3>
-                        <p>We'll be displaying more information as soon as it's available!</p>
-                    </div>
-                </Tile>
+                <UpdateText />
                 { !loading ? (
                     <>
                         <div className="row">

@@ -7,6 +7,7 @@ import Tile from '../components/Tile';
 import './PageGuests.scss';
 
 import dataClient from "../data/sanityClient";
+import UpdateText from '../components/UpdateText';
 
 const PageGuests = () => {
     const [searchTerm, setSearchTerm] = useState("");    
@@ -70,17 +71,9 @@ const PageGuests = () => {
         </Heading>
         <div className="structure">
             <div className="structure-content">
-                <Tile className='dialog notice'>
-                    <div className="icon">
-                        <i className="fa-solid fa-wrench"></i>
-                    </div>
-                    <div className='message'>
-                        <h3>In Active Development</h3>
-                        <p>We'll be displaying more information as soon as it becomes available!</p>
-                    </div>
-                </Tile>
+                <UpdateText />
                 <p className="instruction">
-                    Browse the PMC Guest List below or use the text box search for guest names.
+                    These are the guests that have confirmed their attendance at PMC 2026. Browse the PMC Guest List below or use the text box search for guest names.
                 </p>
                 <input className="guest-searcher" id="guestSearcher" type="text" placeholder="Search by guest name" value={searchTerm} onChange={handleInputChange} />
                 <div className="guest-grid">

@@ -5,6 +5,7 @@ import setBodyColor from '../setBodyColor'
 import Tile from '../components/Tile';
 import './PageHome.scss';
 import pmcLogo from '../assets/Power_Morphicon_logo.png';
+import UpdateText from '../components/UpdateText';
 
 const PageHome = () => {
 
@@ -30,15 +31,7 @@ const PageHome = () => {
         </Heading>
         <div className="structure">
             <div className="structure-content">
-                <Tile className='dialog notice'>
-                    <div className="icon">
-                        <i className="fa-solid fa-wrench"></i>
-                    </div>
-                    <div className='message'>
-                        <h3>Under Construction</h3>
-                        <p>This page is currently being updated for the <b>Power Morphicon 2026</b>. Stay tuned for new information coming soon!</p>
-                    </div>
-                </Tile>
+                <UpdateText />
                 <Tile className='announcement pmc'>
                     <div className="body">
                         <h3>PMC 2026 Announced!</h3>
@@ -50,7 +43,7 @@ const PageHome = () => {
                     <div className='content'>
                         <h3>Panels</h3>
                         <p>Power up with Ranger talks and insights</p>
-                        <div className="action">Browse</div>
+                        <div className="action">Coming Soon</div>                        
                     </div>
                     {/* <div className="icon">
                         <i className="fa-solid fa-people-group"></i>
@@ -60,7 +53,7 @@ const PageHome = () => {
                     <div className='content'>
                         <h3>Photo Ops</h3>
                         <p>Strike a pose with your Morphin' heroes</p>
-                        <div className="action">Browse</div>
+                        <div className="action">Coming Soon</div>
                     </div>
                     {/* <div className="icon">
                         <i className="fa-solid fa-camera"></i>
