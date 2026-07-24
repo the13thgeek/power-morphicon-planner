@@ -15,6 +15,12 @@ const [guest, setGuest] = useState(null);
 const [loading, setLoading] = useState(true);
 const navigate = useNavigate();
 
+const typeLabels = {
+    solo: 'Solo',
+    costume: 'In-Costume',
+    group: 'Group'
+};
+
 const formatPhotoOpTimes = (times) => {
     let output = "";
     
@@ -36,6 +42,16 @@ const formatPhotoOpTimes = (times) => {
     
     return output;
 }
+
+const getTimeDisplay = (value) => {
+    if (!value) {
+        return { text: '—', className: 'time empty' };
+    }
+    if (value === 'TBD' || value.includes('TBD')) {
+        return { text: value, className: 'time tbd' };
+    }
+    return { text: value, className: 'time confirmed' };
+};
 
 setBodyColor({color: '#0d8929'});
 
@@ -103,6 +119,7 @@ useEffect(() => {
                             </div> */}
                             <div className="profile">
                                 <h2>{guest.name} </h2>
+                                <span className="attending">Attending</span>
                                 <div className="attendance">
                                     { guest.attendancePmc26?.fri ? (<span>Fri</span>) : ('') }
                                     { guest.attendancePmc26?.sat ? (<span>Sat</span>) : ('') }
@@ -139,14 +156,33 @@ useEffect(() => {
                             <Tile className='section-heading'>
                                 <h3>Photo Ops</h3>
                             </Tile>
-                            <div className="list-table photo-ops">
-                                { guest.photoOps.map((photoOp, idx) =>
-                                <div className="list-item" key={idx}>
-                                    <h4>{ photoOp.type === 'group' ? ('Group: ' + photoOp.groupName) : (photoOp.type.charAt(0).toUpperCase() + photoOp.type.slice(1)) }</h4>
-                                    <p>
-                                        { formatPhotoOpTimes(photoOp.photoOpTime) }
-                                    </p>
-                                </div>
+                            <div className="list photo-ops">
+                                { guest.photoOps.map((photoOp, idx) => {
+                                    const friTime = getTimeDisplay(photoOp.photoOpTime.fri);
+                                    const satTime = getTimeDisplay(photoOp.photoOpTime.sat);
+                                    const sunTime = getTimeDisplay(photoOp.photoOpTime.sun);
+                                    return (
+                                        <div className="list-item" key={idx}>
+                                            <span className={`type ${photoOp.type}`}><span className="dot"></span> {typeLabels[photoOp.type]} — <b>$ {photoOp.rate}</b></span>
+                                            {photoOp.type === 'group' && (
+                                                <h4>{photoOp.groupName}</h4>
+                                            )}                                        
+                                            <div className="schedule">
+                                                <div className="slot">
+                                                    <span className={friTime.className}>{friTime.text}</span>
+                                                    <span className="day">Fri</span>
+                                                </div>
+                                                <div className="slot">
+                                                    <span className={satTime.className}>{satTime.text}</span>
+                                                    <span className="day">Sat</span>
+                                                </div>
+                                                <div className="slot">
+                                                    <span className={sunTime.className}>{sunTime.text}</span>
+                                                    <span className="day">Sun</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}                                
                                  )}
                             </div>
                             </>

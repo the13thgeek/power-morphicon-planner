@@ -49,11 +49,11 @@ const PageHome = () => {
                         <i className="fa-solid fa-people-group"></i>
                     </div> */}
                 </Tile>
-                <Tile className='module photo-ops' linkTo='photo-ops/' disabled={true}>
+                <Tile className='module photo-ops' linkTo='photo-ops/'>
                     <div className='content'>
                         <h3>Photo Ops</h3>
                         <p>Strike a pose with your Morphin' heroes</p>
-                        <div className="action">Coming Soon</div>
+                        <div className="action">See Photo Ops</div>
                     </div>
                     {/* <div className="icon">
                         <i className="fa-solid fa-camera"></i>

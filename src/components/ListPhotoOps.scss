@@ -2,73 +2,168 @@
     margin: 15px 0;
 
     .photoop-item {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-        margin-bottom: 15px;
-        justify-content: start;
-        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 12px 14px;
+        margin-bottom: 10px;
 
-        hr {
-            border: none;
-            border-right: #0033cc 2px solid;
-        }
-
-        .info {
-            width: 60%;
-            margin-left: 15px;
-
-            h3 {
-                color: #0033cc;
-            }
-
-            p.members {
-                font-size: 14px;
-                line-height: 18px;
-            }
-
-            .rate {
-                display: inline-block;
-                font-size: 14px;
-                line-height: 14px;
-                font-weight: normal;
-                background-color: #000;
-                color: #fff;
-                padding: 4px 5px;
-                margin-left: 5px;
-                transform: translateY(-2px);
-                border-radius: 5px;
-            }
-
-        }
-
-        .time-box {
-            width: 40%;
-            text-align: center;
+        .card-top {
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
-            align-items: center;
-
-            .item {
-                width: 33%;
-                text-align: center;
+        }
+        .guest-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .name {
+                color: #03c;
                 font-weight: bold;
+                font-size: 18px;
             }
+            .type {
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
 
-            span.day-label {
-                background-color: #0033cc;
-                font-weight: normal;
-                color: #fff;
-                text-transform: uppercase;
-                font-size: 12px;
-                line-height: 12px;
-                display: inline-block;
-                padding: 3px 5px;
-                border-radius: 5px;
+                .dot {
+                    width: 7px;
+                    height: 7px;
+                    border-radius: 50%;
+                    flex-shrink: 0;
+                    background: #999;
+                }
+                &.solo .dot {
+                    background: #0c447c;
+                }
+                &.costume .dot {
+                    background: #a4530a;
+                }
+                &.group .dot {
+                    background: #1a6b1a;
+                }
             }
         }
-
+        .rate {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        .schedule {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #dadada;
+        }
+        .slot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .day {
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #666;
+            }
+            .time {
+                font-size: 16px;
+                &.confirmed {
+                    font-weight: bold;
+                    color: #000;
+                }
+                &.tbd {
+                    color: #999;
+                }
+                &.empty {
+                    color: #ccc;
+                }
+            }
+        }
     }
+
+    // .photoop-item {
+    //     display: flex;
+    //     flex-direction: row;
+    //     gap: 15px;
+    //     margin-bottom: 15px;
+    //     padding-bottom: 10px;
+    //     justify-content: start;
+    //     align-items: center;
+    //     border-bottom: #ccc 1px solid;
+
+    //     hr {
+    //         border: none;
+    //         border-right: #0033cc 2px solid;
+    //     }
+
+    //     .type-pill {
+    //         text-transform: uppercase;
+    //         display: inline-block;
+    //         padding: 0.15em 0.6em;
+    //         border-radius: 999px;
+    //         font-size: 0.75em;
+    //         font-weight: 600;
+
+    //         &--solo    { background: #cde; color: #036; }
+    //         &--costume { background: #fde2c8; color: #a4530a; }
+    //         &--group   { background: #d7f2d9; color: #1a6b1a; }
+    //     }
+
+    //     .info {
+    //         width: 60%;
+    //         margin-left: 15px;
+
+    //         h3 {
+    //             color: #0033cc;
+    //         }
+
+    //         p.members {
+    //             font-size: 14px;
+    //             line-height: 18px;
+    //         }
+
+    //         .rate {
+    //             display: inline-block;
+    //             font-size: 14px;
+    //             line-height: 14px;
+    //             font-weight: normal;
+    //             background-color: #000;
+    //             color: #fff;
+    //             padding: 4px 5px;
+    //             margin-left: 5px;
+    //             transform: translateY(-2px);
+    //             border-radius: 5px;
+    //         }
+
+    //     }
+
+    //     .time-box {
+    //         width: 40%;
+    //         text-align: center;
+    //         display: flex;
+    //         flex-direction: row;
+    //         justify-content: space-between;
+    //         align-items: center;
+
+    //         .item {
+    //             width: 33%;
+    //             text-align: center;
+    //             font-weight: bold;
+    //         }
+
+    //         span.day-label {
+    //             background-color: #0033cc;
+    //             font-weight: normal;
+    //             color: #fff;
+    //             text-transform: uppercase;
+    //             font-size: 12px;
+    //             line-height: 12px;
+    //             display: inline-block;
+    //             padding: 3px 5px;
+    //             border-radius: 5px;
+    //         }
+    //     }
+
+    // }
 
 }
