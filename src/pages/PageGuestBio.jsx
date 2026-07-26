@@ -130,60 +130,64 @@ useEffect(() => {
                         </div>
                         { guest.panels && guest.panels.length > 0 ? (
                             <>
-                            <Tile className='section-heading'>
-                                <h3>Panels</h3>
-                            </Tile>
-                            <div className="list-table">
-                                { guest.panels.map((panel, idx) => 
-                                <div className="list-item" key={idx}>
-                                    <h4>{panel.title}</h4>
-                                    <p>
-                                        { panel.day === 1 ? 'Friday' :
-                                        panel.day === 2 ? 'Saturday' :
-                                        'Sunday' }&nbsp;|&nbsp;
-                                        { panel.duration.start + ' - ' + panel.duration.end }&nbsp;|&nbsp;
-                                        { panel.room === 'a' ? 'Room A' :
-                                        panel.room === 'b' ? 'Room B' :
-                                        'Room C' }
-                                    </p>
+                            <div className="guest-panels">
+                                <h3 className='sub-section'>Panels</h3>
+                                <div className="list panels">
+                                    { guest.panels.map((panel, idx) => 
+                                    <div className="list-item" key={idx}>
+                                        <h4>{panel.title}</h4>
+                                        <div className="schedule">
+                                            <span className="room">{ panel.room === 'a' ? 'Panel Room A' :
+                                            panel.room === 'b' ? 'Panel Room B' :
+                                            'Panel Room C' }</span>
+                                            <span className="day">{ panel.day === 1 ? 'Friday' :
+                                            panel.day === 2 ? 'Saturday' :
+                                            'Sunday' }</span>
+                                            <span>·</span>
+                                            <span className="time">
+                                            { panel.duration.start + ' - ' + panel.duration.end }
+                                            </span>
+                                            
+                                        </div>
+                                    </div>
+                                    )}                                
                                 </div>
-                                )}                                
                             </div>
                             </>
                         ) : ('') }
                         { guest.photoOps && guest.photoOps.length > 0 ? (
                             <>
-                            <Tile className='section-heading'>
-                                <h3>Photo Ops</h3>
-                            </Tile>
-                            <div className="list photo-ops">
-                                { guest.photoOps.map((photoOp, idx) => {
-                                    const friTime = getTimeDisplay(photoOp.photoOpTime.fri);
-                                    const satTime = getTimeDisplay(photoOp.photoOpTime.sat);
-                                    const sunTime = getTimeDisplay(photoOp.photoOpTime.sun);
-                                    return (
-                                        <div className="list-item" key={idx}>
-                                            <span className={`type ${photoOp.type}`}><span className="dot"></span> {typeLabels[photoOp.type]} — <b>$ {photoOp.rate}</b></span>
-                                            {photoOp.type === 'group' && (
-                                                <h4>{photoOp.groupName}</h4>
-                                            )}                                        
-                                            <div className="schedule">
-                                                <div className="slot">
-                                                    <span className={friTime.className}>{friTime.text}</span>
-                                                    <span className="day">Fri</span>
-                                                </div>
-                                                <div className="slot">
-                                                    <span className={satTime.className}>{satTime.text}</span>
-                                                    <span className="day">Sat</span>
-                                                </div>
-                                                <div className="slot">
-                                                    <span className={sunTime.className}>{sunTime.text}</span>
-                                                    <span className="day">Sun</span>
+                            <div className="guest-photo-ops">
+                            <h3 className='sub-section'>Photo Ops</h3>
+                                <div className="list photo-ops">
+                                    { guest.photoOps.map((photoOp, idx) => {
+                                        const friTime = getTimeDisplay(photoOp.photoOpTime.fri);
+                                        const satTime = getTimeDisplay(photoOp.photoOpTime.sat);
+                                        const sunTime = getTimeDisplay(photoOp.photoOpTime.sun);
+                                        return (
+                                            <div className="list-item" key={idx}>
+                                                <span className={`type ${photoOp.type}`}><span className="dot"></span> {typeLabels[photoOp.type]} — <b>$ {photoOp.rate}</b></span>
+                                                {photoOp.type === 'group' && (
+                                                    <h4>{photoOp.groupName}</h4>
+                                                )}                                        
+                                                <div className="schedule">
+                                                    <div className="slot">
+                                                        <span className={friTime.className}>{friTime.text}</span>
+                                                        <span className="day">Fri</span>
+                                                    </div>
+                                                    <div className="slot">
+                                                        <span className={satTime.className}>{satTime.text}</span>
+                                                        <span className="day">Sat</span>
+                                                    </div>
+                                                    <div className="slot">
+                                                        <span className={sunTime.className}>{sunTime.text}</span>
+                                                        <span className="day">Sun</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    )}                                
-                                 )}
+                                        )}                                
+                                    )}
+                                </div>
                             </div>
                             </>
                         ) : ('') }

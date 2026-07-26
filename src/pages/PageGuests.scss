@@ -4,13 +4,12 @@
     flex-direction: column;
 
     input.guest-searcher {
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 16px;
         padding: 10px 15px;
         margin-bottom: 30px;
-        background-color: #ddd;
+        background-color: #f4f5f7;
         border-radius: 15px;
-        border: 0;        
+        border: #e8e8e8 1px solid;
     }
 
     .instruction, .no-data {
@@ -26,12 +25,16 @@
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 0;
         margin-bottom: 30px;
 
         a {
             text-decoration: none;
             color: #000;
+
+            &:hover {
+                background-color: #eee;
+            }
         }
 
         .item {
@@ -43,19 +46,33 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
+            padding: 5px 10px;
+            box-sizing: border-box;
+
+            .name {
+                font-size: 15px;
+                font-weight: 500;
+            }
 
             .attendance {
 
                 span {
-                    background-color: #0d8929;
-                    color: #fff;
-                    text-transform: uppercase;
+                    background-color: #e5f3ea;
+                    color: #1a7a3d;
+                    border: #cfe8d8 1px solid;
                     font-size: 12px;
                     line-height: 12px;
                     display: inline-block;
-                    padding: 3px 5px;
+                    padding: 3px 8px;
                     border-radius: 5px;
                     margin-right: 5px;
+
+                    &.absent {
+                        color: #bbb;
+                        background-color: #f0f0f0;
+                        border-color: #e8e8e8;
+                        opacity: 0.6;
+                    }
                 }
             }
         }

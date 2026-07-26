@@ -11,18 +11,31 @@
         gap: 20px;
     }
 
-    .section-heading {
-        margin: 15px 0 10px;
-        background-color: lighten(#0d8929, 50%);
-
-        h3 {
-            display: inline-block;
-            background-color: #0d8929;
-            color: #fff;
-            font-size: 16px;
-            border-radius: 15px;
-            padding: 10px 15px;
+    .guest-panels, .guest-photo-ops {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+    }
+    .guest-panels {
+        .list.panels {
+            width: 100%;
         }
+    }
+    .guest-photo-ops {
+        .list.photo-ops {
+            width: 100%;
+        }
+    }
+
+    h3.sub-section {
+        display: inline-block;
+        border-bottom: #0d8929 3px solid;
+        text-transform: uppercase;
+        margin: 10px 0;
+        font-size: 14px;
+        padding-bottom: 6px;
+        margin-bottom: 16px;
     }
 
     .photo {
@@ -85,7 +98,49 @@
     }
 
     .list {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+
+        &.panels {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            
+            .list-item {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                padding: 12px 14px;
+                background-color: #fafafa;
+            }
+            h4 {
+                font-size: 15px;
+            }
+            .schedule {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .room {
+                display: flex;
+                padding: 3px 7px;
+                font-size: 11px;
+                font-weight: bold;
+                background-color: #a50606;
+                color: #fff;
+                border-radius: 5px;
+            }
+            .day {
+                color: #555;
+                font-weight: 500;
+                font-size: 14px;
+            }
+            .time {
+                color: #666;
+                font-size: 14px;
+            }
+        }
 
         &.photo-ops {
             display: grid;
@@ -96,6 +151,7 @@
                 border: 1px solid #ccc;
                 border-radius: 10px;
                 padding: 12px 14px;
+                background-color: #fafafa;
             }
             .type {
                 font-size: 14px;

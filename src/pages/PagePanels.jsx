@@ -6,6 +6,7 @@ import setBodyColor from '../setBodyColor'
 import Tile from '../components/Tile';
 import ListPanels from "../components/ListPanels";
 import './PagePanels.scss';
+import UpdateText from "../components/UpdateText";
 
 //import data from "../data/paneldata.json";
 import dataClient from "../data/sanityClient";
@@ -26,7 +27,7 @@ const PagePanels = () => {
             day,room,
             duration,
             moderator,
-            guests[]->{name},
+            guests[]->{name,slug},
             guests_plus
         }`;
 
@@ -85,15 +86,7 @@ const PagePanels = () => {
         </Heading>
         <div className="structure">
             <div className="structure-content">                
-                <Tile className='dialog notice'>
-                    <div className="icon">
-                        <i className="fa-solid fa-wrench"></i>
-                    </div>
-                    <div className='message'>
-                        <h3>In Active Development</h3>
-                        <p>We'll be displaying more information as soon as it becomes available!</p>
-                    </div>
-                </Tile>
+                <UpdateText />
                 <p className="instruction">
                     Browse the Panels schedule below or use the text box search for a panel.
                 </p>

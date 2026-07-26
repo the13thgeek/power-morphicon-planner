@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PanelGuestLinks from './PanelGuestLinks';
 import './ListPanels.scss';
 
 const ListPanels = (panelData) => {
@@ -22,35 +24,43 @@ const processGuestNames = (guests,guests_plus) => {
     }
 
     return output;
-}
+};
 
   return (
     <div className='panels-list'>
-        {panelData.data.map((panel,index) => 
-            <div key={panel._id || index} className="panel-item">
-                <div className="place-time">
-                    <span className="room">
-                        { panel.room === 'a' ? 'Room A' :
-                          panel.room === 'b' ? 'Room B' :
-                          panel.room === 'c' ? 'Room C' : ''}
-                    </span><br />
-                    {panel.duration.start}<br />
-                    {panel.duration.end}
+        {panelData.data.map((panel,index) => {
+            return (
+                <div key={panel._id || index} className="panel-item">
+                    <div className="place-time">
+                        <span className="room">
+                            { panel.room === 'a' ? 'Panel Room A' :
+                            panel.room === 'b' ? 'Panel Room B' :
+                            panel.room === 'c' ? 'Panel Room C' : ''}
+                        </span>
+                        <span className="timespan">
+                            {panel.duration.start} - {panel.duration.end}
+                        </span>
+                    </div>
+                    <div className="info">
+                        <h3>{panel.title}</h3>
+                        <p>{panel.description}</p>
+                        { panel.guests && (
+                            <>
+                            <h4>Guests</h4>
+                            <PanelGuestLinks guests={panel.guests} />
+                            </>
+                        )}
+                        { panel.guests_plus && (
+                            <p className="sub"><b>Also featuring:</b> {panel.guests_plus}</p>
+                        )}
+                        { panel.moderator && (
+                            <p className='sub'><b>Moderator(s):</b> {panel.moderator}</p>
+                        )}
+                    </div>
                 </div>
-                <hr />
-                <div className="info">
-                    <h3>{panel.title}</h3>
-                    <p>{panel.description}</p>
-                    { panel.guests || panel.guests_plus ? (
-                        <p>
-                            <b>Guest(s):</b> {processGuestNames(panel.guests, panel.guests_plus)}
-                        </p>
-                    ) : ('') }
-                    { panel.moderator ? (
-                        <p><b>Moderator(s):</b> {panel.moderator}</p>
-                    ) : ('')}
-                </div>
-            </div>
+            )
+        }
+            
         )}        
     </div>
   )

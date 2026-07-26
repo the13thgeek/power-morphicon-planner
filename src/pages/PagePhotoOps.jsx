@@ -6,6 +6,7 @@ import setBodyColor from '../setBodyColor'
 import Tile from '../components/Tile';
 import ListPhotoOps from "../components/ListPhotoOps";
 import './PagePhotoOps.scss';
+import UpdateText from "../components/UpdateText";
 
 //import data from "../data/photoopdata.json";
 import dataClient from "../data/sanityClient";
@@ -101,15 +102,7 @@ const PagePhotoOps = () => {
         </Heading>
         <div className="structure">
             <div className="structure-content">
-                <Tile className='dialog notice'>
-                    <div className="icon">
-                        <i className="fa-solid fa-wrench"></i>
-                    </div>
-                    <div className='message'>
-                        <h3>In Active Development</h3>
-                        <p>We'll be displaying more information as soon as it becomes available!</p>
-                    </div>
-                </Tile>
+                <UpdateText />
                 <p className="instruction">
                     Browse the Photo Ops schedule below or use the text box search for a photo op.
                 </p>

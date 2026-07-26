@@ -77,17 +77,17 @@ const PageGuests = () => {
                 </p>
                 <input className="guest-searcher" id="guestSearcher" type="text" placeholder="Search by guest name" value={searchTerm} onChange={handleInputChange} />
                 <div className="guest-grid">
-                    { filteredData ? (
+                    { filteredData?.length > 0 ? (
                         filteredData.map((guest, index) => (
                         <Link to={`/guests/${guest.slug.current}`} className={`item-`+index+` id-`+guest._id} key={index}>
                             <div className="item">
                                 {/* <img src="https://placehold.co/300" alt="Photo Preview" /> */}
                                 <div className="info">
-                                    <h4>{guest.name}</h4>
+                                    <span className='name'>{guest.name}</span>
                                     <div className="attendance">
-                                        { guest.attendancePmc26?.fri ? (<span>Fri</span>) : ('') }
-                                        { guest.attendancePmc26?.sat ? (<span>Sat</span>) : ('') }
-                                        { guest.attendancePmc26?.sun ? (<span>Sun</span>) : ('') }
+                                        { guest.attendancePmc26?.fri ? (<span>Fri</span>) : (<span className='absent'>Fri</span>) }
+                                        { guest.attendancePmc26?.sat ? (<span>Sat</span>) : (<span className='absent'>Sat</span>) }
+                                        { guest.attendancePmc26?.sun ? (<span>Sun</span>) : (<span className='absent'>Sun</span>) }
                                     </div>
                                 </div>
                                 
@@ -95,7 +95,7 @@ const PageGuests = () => {
                         </Link>
                         ))                        
                     ) : (
-                        <div className="no-data">No no guest names matched with <b>"{searchTerm}."</b></div>
+                        <div className="no-data">No guest names matched with <b>"{searchTerm}."</b></div>
                     )}
                 </div>
                 <Tile className='disclaimer'>

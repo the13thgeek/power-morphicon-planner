@@ -1,0 +1,27 @@
+.guest-links {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    
+    a {
+        display: flex;
+        font-size: 13px;
+        font-weight: 600;
+        color: #0c447c;
+        background: #eaf3ff;
+        padding: 5px 15px;
+        border-radius: 100px;
+    }
+    button.guest-more {
+      display: flex;
+      font-size: 13px;
+      font-weight: 400;
+      color: #666;
+      background: #eee;
+      padding: 5px 15px;
+      border-radius: 100px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+}
