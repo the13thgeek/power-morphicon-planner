@@ -10,11 +10,12 @@
         .card-top {
             display: flex;
             justify-content: space-between;
+            padding-bottom: 0.5rem;
         }
         .guest-info {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 10px;
             .name {
                 color: #03c;
                 font-weight: bold;
@@ -48,6 +49,10 @@
             font-size: 16px;
             font-weight: bold;
             color: #333;
+            min-width: 5rem;
+            display: flex;
+            align-items: start;
+            justify-content: flex-end;
         }
         .schedule {
             display: grid;
