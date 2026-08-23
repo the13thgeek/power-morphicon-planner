@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Heading from '../components/Heading';
 import Footer from "../components/Footer";
@@ -106,6 +107,8 @@ const PagePhotoOps = () => {
                 <p className="instruction">
                     Browse the Photo Ops schedule below or use the text box search for a photo op.
                 </p>
+                <Link to="https://captureticketing.com/events/260" target="_blank" rel="noopener noreferrer" className="action">Buy Photo Ops Tickets <i className="fa-solid fa-up-right-from-square"></i></Link>
+                
                 <input className="photo-ops-searcher" id="photoOpSearcher" type="text" placeholder="Search by guest or group name" value={searchTerm} onChange={handleInputChange} />
 
                 <Tabs className='photoop-tabs' selectedTabClassName='active'>

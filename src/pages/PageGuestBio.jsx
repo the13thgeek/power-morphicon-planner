@@ -4,6 +4,7 @@ import Heading from '../components/Heading';
 import Footer from "../components/Footer";
 import setBodyColor from '../setBodyColor'
 import Tile from '../components/Tile';
+import TimeDisplay from '../components/TimeDisplay';
 import './PageGuestBio.scss';
 
 import dataClient from "../data/sanityClient";
@@ -137,15 +138,15 @@ useEffect(() => {
                                     <div className="list-item" key={idx}>
                                         <h4>{panel.title}</h4>
                                         <div className="schedule">
-                                            <span className="room">{ panel.room === 'a' ? 'Panel Room A' :
-                                            panel.room === 'b' ? 'Panel Room B' :
-                                            'Panel Room C' }</span>
+                                            <span className="room">{ panel.room === 'a' ? 'Room A' :
+                                            panel.room === 'b' ? 'Room B' :
+                                            'Main Hall' }</span>
                                             <span className="day">{ panel.day === 1 ? 'Friday' :
                                             panel.day === 2 ? 'Saturday' :
                                             'Sunday' }</span>
                                             <span>·</span>
                                             <span className="time">
-                                            { panel.duration.start + ' - ' + panel.duration.end }
+                                                <TimeDisplay startTime={panel.duration.start} endTime={panel.duration.end} />
                                             </span>
                                             
                                         </div>

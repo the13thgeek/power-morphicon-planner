@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PanelGuestLinks from './PanelGuestLinks';
+import TimeDisplay from './TimeDisplay';
 import './ListPanels.scss';
 
 const ListPanels = (panelData) => {
@@ -33,12 +34,13 @@ const processGuestNames = (guests,guests_plus) => {
                 <div key={panel._id || index} className="panel-item">
                     <div className="place-time">
                         <span className="room">
-                            { panel.room === 'a' ? 'Panel Room A' :
-                            panel.room === 'b' ? 'Panel Room B' :
-                            panel.room === 'c' ? 'Panel Room C' : ''}
+                            { panel.room === 'a' ? 'Room A' :
+                            panel.room === 'b' ? 'Room B' :
+                            panel.room === 'c' ? 'Room C' :
+                            panel.room === 'main' ? 'Main Hall' : '' }
                         </span>
                         <span className="timespan">
-                            {panel.duration.start} - {panel.duration.end}
+                            <TimeDisplay startTime={panel.duration.start} endTime={panel.duration.end} />
                         </span>
                     </div>
                     <div className="info">

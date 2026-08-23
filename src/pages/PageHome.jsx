@@ -39,11 +39,11 @@ const PageHome = () => {
                         Pasadena Convention Center</p>
                     </div>
                 </Tile>
-                <Tile className='module panels' linkTo='panels/' disabled={true}>
+                <Tile className='module panels' linkTo='panels/'>
                     <div className='content'>
                         <h3>Panels</h3>
                         <p>Power up with Ranger talks and insights</p>
-                        <div className="action">Coming Soon</div>                        
+                        <div className="action">See Panel Schedule</div>                        
                     </div>
                     {/* <div className="icon">
                         <i className="fa-solid fa-people-group"></i>
