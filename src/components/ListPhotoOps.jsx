@@ -52,7 +52,7 @@ const getTimeDisplay = (value) => {
                             )}
                         </div>
                         <div className="rate">
-                            $ {photoOp.rate}
+                            {photoOp.rate !== null && `$${photoOp.rate}`}
                         </div>
                     </div>
                     <div className="schedule">

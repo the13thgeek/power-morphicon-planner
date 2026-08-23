@@ -166,7 +166,7 @@ useEffect(() => {
                                         const sunTime = getTimeDisplay(photoOp.photoOpTime.sun);
                                         return (
                                             <div className="list-item" key={idx}>
-                                                <span className={`type ${photoOp.type}`}><span className="dot"></span> {typeLabels[photoOp.type]} — <b>$ {photoOp.rate}</b></span>
+                                                <span className={`type ${photoOp.type}`}><span className="dot"></span> {typeLabels[photoOp.type]} — <b>{photoOp.rate !== null && `$${photoOp.rate}`}</b></span>
                                                 {photoOp.type === 'group' && (
                                                     <h4>{photoOp.groupName}</h4>
                                                 )}                                        
