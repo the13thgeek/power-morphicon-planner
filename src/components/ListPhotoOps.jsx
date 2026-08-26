@@ -39,6 +39,8 @@ const getTimeDisplay = (value) => {
             const friTime = getTimeDisplay(photoOp.photoOpTime.fri);
             const satTime = getTimeDisplay(photoOp.photoOpTime.sat);
             const sunTime = getTimeDisplay(photoOp.photoOpTime.sun);
+            // for debugging purposes, you can uncomment the following line to log each photoOp object to the console
+            // console.log('photoOp:', photoOp);
             return (
                 <div key={photoOp._id || index} className='photoop-item'>
                     <div className="card-top">
