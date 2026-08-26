@@ -27,7 +27,16 @@ const PagePhotoOps = () => {
         //     guests[]->{name},
         //     photoOpTime
         // }`;
-        let query = `*[_type == "pmcPhotoOp" && pmcYear == 2026] | order(coalesce(guests[0]->name, groupName) asc, type asc) {
+        // let query = `*[_type == "pmcPhotoOp" && pmcYear == 2026] | order(coalesce(guests[0]->name, groupName) asc, type asc) {
+        //     _id,
+        //     pmcYear,
+        //     type,
+        //     groupName,
+        //     rate,
+        //     guests[]->{name},
+        //     photoOpTime
+        // }`;
+        let query = `*[_type == "pmcPhotoOp" && pmcYear == 2026] | order(type asc, select(type == "group" => groupName, guests[0]->name) asc) {
             _id,
             pmcYear,
             type,
@@ -83,6 +92,12 @@ const PagePhotoOps = () => {
 
     setBodyColor({color: '#0033cc'});
 
+    const getDisplayName = (p) => (p.type === 'group' ? p.groupName : p.guests?.[0]?.name) || '';
+
+    const allOpsSorted = filteredData
+        ? [...filteredData].sort((a, b) => getDisplayName(a).localeCompare(getDisplayName(b)))
+        : [];
+
     const soloOps = filteredData ? filteredData.filter((p) => p.type === 'solo') : [];
     const costumeOps = filteredData ? filteredData.filter((p) => p.type === 'costume') : [];
     const groupOps = filteredData ? filteredData.filter((p) => p.type === 'group') : [];
@@ -119,8 +134,8 @@ const PagePhotoOps = () => {
                         <Tab><span>Group</span></Tab>
                     </TabList>
                     <TabPanel>
-                        { filteredData && filteredData.length > 0 ? (
-                            <ListPhotoOps data={filteredData} showType={true} />
+                        { allOpsSorted.length > 0 ? (
+                            <ListPhotoOps data={allOpsSorted} showType={true} />
                         ) : searchTerm !== '' ? (
                             <div className="no-data">No matching photo ops for <b>"{searchTerm}."</b></div>
                         ) : (
