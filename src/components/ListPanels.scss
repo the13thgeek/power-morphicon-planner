@@ -8,16 +8,25 @@
         border: 1px solid #ccc;
         border-radius: 10px;
         padding: 12px 14px;
-        margin-bottom: 10px;
-        display: grid;
+        margin-bottom: 10px;       
         gap: 15px;
-        grid-template-columns: 100px 1fr;
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 600px) {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+        }
     }
     .place-time {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        align-items: center;
+        align-items: start;
+
+        @media (min-width: 600px) {
+            align-items: center;
+        }
 
         .room {
             display: flex;
@@ -30,7 +39,7 @@
         }
         .timespan {
             color: #666;
-            font-size: 14px;
+            font-size: 16px;
         }
     }
     .info {
