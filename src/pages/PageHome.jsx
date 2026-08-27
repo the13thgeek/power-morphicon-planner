@@ -23,7 +23,7 @@ const PageHome = () => {
             <div className='content'>
                 <img src={pmcLogo} alt="Power Morphicon" className='pmc-logo' />
                 <h1>Plan your PMC weekend!</h1>
-                <p>The guests are slowly being announced for PMC 2026. Check back soon for more information!</p>
+                <p>Power Morphicon 2026 kicks off August 28th! Search for Panels, Photo Ops, and Guests.</p>
             </div>
             <div className="icon">
                 <i className="fa-solid fa-bolt-lightning"></i>
