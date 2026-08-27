@@ -90,7 +90,7 @@ const PagePanels = () => {
                 <p className="instruction">
                     Browse the Panels schedule below or use the text box search for a panel.
                 </p>
-                <input className="panel-searcher" id="panelSearcher" type="text" placeholder="Search by panel, room or participant names" value={searchTerm} onChange={handleInputChange} />
+                <input className="panel-searcher" id="panelSearcher" type="text" placeholder="Search by panel title or participant names" value={searchTerm} onChange={handleInputChange} />
                 
                 <Tabs className='day-tabs' selectedTabClassName='active'>
                     <TabList>

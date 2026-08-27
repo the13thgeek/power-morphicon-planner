@@ -11,9 +11,9 @@ const UpdateText = () => {
             <h3>Latest Updates</h3>
             {/* <p>This page is currently being updated for the <b>Power Morphicon 2026</b>. Stay tuned for new information coming soon!</p> */}
             <ul>
-              <li>August 26, 2026 - Updated <b>Guests</b> and <b>Panels</b> information</li>
-              <li>August 25, 2026 - Updated <b>Guests</b>, <b>Photo Ops</b> and <b>Panels</b> information; fixed <b>Photo Ops</b> sorting bug</li>
-              <li>August 23, 2026 - Added <b>Panels</b> information</li>
+              <li>Aug 27, 2026 - Updated <b>Photo Ops</b> and <b>Panels</b> information</li>
+              <li>Aug 26, 2026 - Updated <b>Guests</b> and <b>Panels</b> information</li>
+              <li>Aug 25, 2026 - Updated <b>Guests</b>, <b>Photo Ops</b> and <b>Panels</b> information; fixed <b>Photo Ops</b> sorting bug</li>
             </ul>
         </div>
     </Tile>
