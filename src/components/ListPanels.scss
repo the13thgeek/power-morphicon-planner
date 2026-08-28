@@ -13,19 +13,21 @@
         display: flex;
         flex-direction: column;
 
-        @media (min-width: 600px) {
+        @media (min-width: 500px) {
             display: grid;
             grid-template-columns: 80px 1fr;
         }
     }
     .place-time {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: row;
+        gap: 20px;
         align-items: start;
 
-        @media (min-width: 600px) {
+        @media (min-width: 500px) {
             align-items: center;
+            flex-direction: column;
+            gap: 5px;
         }
 
         .room {
