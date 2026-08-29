@@ -92,7 +92,7 @@ const PagePanels = () => {
                 </p>
                 <input className="panel-searcher" id="panelSearcher" type="text" placeholder="Search by panel title or participant names" value={searchTerm} onChange={handleInputChange} />
                 
-                <Tabs className='day-tabs' selectedTabClassName='active'>
+                <Tabs defaultIndex={1} className='day-tabs' selectedTabClassName='active'>
                     <TabList>
                         <Tab><span>Day 1 (Fri)</span></Tab>
                         <Tab><span>Day 2 (Sat)</span></Tab>
