@@ -32,13 +32,13 @@ const PageHome = () => {
         <div className="structure">
             <div className="structure-content">
                 <UpdateText />
-                <Tile className='announcement pmc'>
+                {/* <Tile className='announcement pmc'>
                     <div className="body">
                         <h3>PMC 2026 Announced!</h3>
                         <p>August 28 - 30, 2026<br />
                         Pasadena Convention Center</p>
                     </div>
-                </Tile>
+                </Tile> */}
                 <Tile className='module panels' linkTo='panels/'>
                     <div className='content'>
                         <h3>Panels</h3>
